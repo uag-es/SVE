@@ -1,0 +1,152 @@
+Feature: Parking space suggestion
+
+--Output from The system has a parking space available--
+--Output from The system does not have a parking space available--
+  Scenario: The system has a parking space available                                                    # ParkingSpaceSuggestion.feature:2
+    Given the system has stored the user "pasg" with preference for parking spaces in the "CCEN" sector # ParkingSpaceSuggestionSteps.groovy:9
+    And the user is logged in the system                                                                # ParkingSpaceSuggestionSteps.groovy:28
+    And the parking space "1" is from the "CIn" sector                                                  # ParkingSpaceSuggestionSteps.groovy:45
+    And the parking space "1" is available                                                              # ParkingSpaceSuggestionSteps.groovy:53
+    When the user asks for suggestions of parking spaces                                                # ParkingSpaceSuggestionSteps.groovy:94
+    Then the systems informs the parking space "1" to the user                                          # ParkingSpaceSuggestionSteps.groovy:116
+
+--Output from The system has a parking space available on the desired sector--
+  Scenario: The system does not have a parking space available                                         # ParkingSpaceSuggestion.feature:10
+    Given the system has stored the user "asg" with preference for parking spaces in the "CCEN" sector # ParkingSpaceSuggestionSteps.groovy:9
+    And the user is logged in the system                                                               # ParkingSpaceSuggestionSteps.groovy:28
+    And the parking space "2" is from the "CIn" sector                                                 # ParkingSpaceSuggestionSteps.groovy:45
+    And the parking space "2" is not available                                                         # ParkingSpaceSuggestionSteps.groovy:57
+    When the user asks for suggestions of parking spaces                                               # ParkingSpaceSuggestionSteps.groovy:94
+    Then the systems does not inform the parking space "2" to the user                                 # ParkingSpaceSuggestionSteps.groovy:120
+
+--Output from The system does not have a parking space available on the desired sector--
+  Scenario: The system has a parking space available on the desired sector                                 # ParkingSpaceSuggestion.feature:18
+    Given the system has stored the user "phmb" with preference for parking spaces in the "Ã?rea II" sector # ParkingSpaceSuggestionSteps.groovy:9
+    And the user is logged in the system                                                                   # ParkingSpaceSuggestionSteps.groovy:28
+    And the parking space "3" is from the "Ã?rea II" sector                                                 # ParkingSpaceSuggestionSteps.groovy:45
+    And the parking space "3" is available                                                                 # ParkingSpaceSuggestionSteps.groovy:53
+    When the user asks for suggestions of parking spaces on his sector                                     # ParkingSpaceSuggestionSteps.groovy:98
+    Then the systems informs the parking space "3" to the user                                             # ParkingSpaceSuggestionSteps.groovy:116
+
+--Output from The system has a parking space available on another sector--
+  Scenario: The system does not have a parking space available on the desired sector                       # ParkingSpaceSuggestion.feature:26
+    Given the system has stored the user "pmmc" with preference for parking spaces in the "Ã?rea II" sector # ParkingSpaceSuggestionSteps.groovy:9
+    And the user is logged in the system                                                                   # ParkingSpaceSuggestionSteps.groovy:28
+    And the parking space "4" is from the "Ã?rea II" sector                                                 # ParkingSpaceSuggestionSteps.groovy:45
+    And the parking space "4" is not available                                                             # ParkingSpaceSuggestionSteps.groovy:57
+    When the user asks for suggestions of parking spaces on his sector                                     # ParkingSpaceSuggestionSteps.groovy:98
+    Then the systems does not inform the parking space "4" to the user                                     # ParkingSpaceSuggestionSteps.groovy:120
+
+--Output from The system has a preferential parking space available on the desired sector--
+  Scenario: The system has a parking space available on another sector                                 # ParkingSpaceSuggestion.feature:34
+    Given the system has stored the user "ago" with preference for parking spaces in the "CCEN" sector # ParkingSpaceSuggestionSteps.groovy:9
+    And the user is logged in the system                                                               # ParkingSpaceSuggestionSteps.groovy:28
+    And the parking space "5" is from the "CIn" sector                                                 # ParkingSpaceSuggestionSteps.groovy:45
+    And the parking space "5" is available                                                             # ParkingSpaceSuggestionSteps.groovy:53
+    When the user asks for suggestions of parking spaces on his sector                                 # ParkingSpaceSuggestionSteps.groovy:98
+    Then the systems does not inform the parking space "5" to the user                                 # ParkingSpaceSuggestionSteps.groovy:120
+
+--Output from The system has a non-preferential parking space available on the desired sector--
+  Scenario: The system has a preferential parking space available on the desired sector               # ParkingSpaceSuggestion.feature:42
+    Given the system has stored the user "mel" with preference for parking spaces in the "CIn" sector # ParkingSpaceSuggestionSteps.groovy:9
+    And the user is logged in the system                                                              # ParkingSpaceSuggestionSteps.groovy:28
+    And the preferential parking space "6" is from the "CIn" sector                                   # ParkingSpaceSuggestionSteps.groovy:49
+    And the parking space "6" is available                                                            # ParkingSpaceSuggestionSteps.groovy:53
+    When the user asks for suggestions of preferential parking spaces on his sector                   # ParkingSpaceSuggestionSteps.groovy:102
+    Then the systems informs the parking space "6" to the user                                        # ParkingSpaceSuggestionSteps.groovy:116
+
+--Output from The system has a preferential parking space available on another sector--
+  Scenario: The system has a non-preferential parking space available on the desired sector            # ParkingSpaceSuggestion.feature:50
+    Given the system has stored the user "aams" with preference for parking spaces in the "CIn" sector # ParkingSpaceSuggestionSteps.groovy:9
+    And the user is logged in the system                                                               # ParkingSpaceSuggestionSteps.groovy:28
+    And the parking space "7" is from the "CIn" sector                                                 # ParkingSpaceSuggestionSteps.groovy:45
+    And the parking space "7" is available                                                             # ParkingSpaceSuggestionSteps.groovy:53
+    When the user asks for suggestions of preferential parking spaces on his sector                    # ParkingSpaceSuggestionSteps.groovy:102
+    Then the systems does not inform the parking space "7" to the user                                 # ParkingSpaceSuggestionSteps.groovy:120
+
+--Output from The system has a parking space available web--
+  Scenario: The system has a preferential parking space available on another sector                        # ParkingSpaceSuggestion.feature:58
+    Given the system has stored the user "cca2" with preference for parking spaces in the "Ã?rea II" sector # ParkingSpaceSuggestionSteps.groovy:9
+    And the user is logged in the system                                                                   # ParkingSpaceSuggestionSteps.groovy:28
+    And the preferential parking space "8" is from the "CIn" sector                                        # ParkingSpaceSuggestionSteps.groovy:49
+    And the parking space "8" is available                                                                 # ParkingSpaceSuggestionSteps.groovy:53
+    When the user asks for suggestions of preferential parking spaces on his sector                        # ParkingSpaceSuggestionSteps.groovy:102
+    Then the systems does not inform the parking space "8" to the user                                     # ParkingSpaceSuggestionSteps.groovy:120
+
+--Output from The system does not have a parking space available web--
+  Scenario: The system has a parking space available web                                # ParkingSpaceSuggestion.feature:66
+    Given I signed up as "hjcf" with preference for parking spaces in the "CCEN" sector # ParkingSpaceSuggestionSteps.groovy:20
+    And the parking space "9" is from the "CIn" sector                                  # ParkingSpaceSuggestionSteps.groovy:45
+    And the parking space "9" is available                                              # ParkingSpaceSuggestionSteps.groovy:53
+    When I go to parking space's suggestion page                                        # ParkingSpaceSuggestionSteps.groovy:64
+    Then I can see the parking space "9" in the suggestions                             # ParkingSpaceSuggestionSteps.groovy:130
+
+--Output from The system has a parking space available on the desired sector web--
+  Scenario: The system does not have a parking space available web                       # ParkingSpaceSuggestion.feature:73
+    Given I signed up as "yfdsc" with preference for parking spaces in the "CCEN" sector # ParkingSpaceSuggestionSteps.groovy:20
+    And the parking space "10" is from the "CIn" sector                                  # ParkingSpaceSuggestionSteps.groovy:45
+    And the parking space "10" is not available                                          # ParkingSpaceSuggestionSteps.groovy:57
+    When I go to parking space's suggestion page                                         # ParkingSpaceSuggestionSteps.groovy:64
+    Then I can not see the parking space "10" in the suggestions                         # ParkingSpaceSuggestionSteps.groovy:134
+
+--Output from The system does not have a parking space available on the desired sector web--
+  Scenario: The system has a parking space available on the desired sector web             # ParkingSpaceSuggestion.feature:80
+    Given I signed up as "alfc" with preference for parking spaces in the "Ã?rea II" sector # ParkingSpaceSuggestionSteps.groovy:20
+    And the parking space "11" is from the "Ã?rea II" sector                                # ParkingSpaceSuggestionSteps.groovy:45
+    And the parking space "11" is available                                                # ParkingSpaceSuggestionSteps.groovy:53
+    When I go to parking space's suggestion page                                           # ParkingSpaceSuggestionSteps.groovy:64
+    And I select the filter from parking spaces in my preferred sector                     # ParkingSpaceSuggestionSteps.groovy:70
+    And I confirm the filter options                                                       # ParkingSpaceSuggestionSteps.groovy:82
+    Then I can see the parking space "11" in the suggestions                               # ParkingSpaceSuggestionSteps.groovy:130
+
+--Output from The system has a parking space available on another sector web--
+  Scenario: The system does not have a parking space available on the desired sector web  # ParkingSpaceSuggestion.feature:89
+    Given I signed up as "rmc" with preference for parking spaces in the "Ã?rea II" sector # ParkingSpaceSuggestionSteps.groovy:20
+    And the parking space "12" is from the "Ã?rea II" sector                               # ParkingSpaceSuggestionSteps.groovy:45
+    And the parking space "12" is not available                                           # ParkingSpaceSuggestionSteps.groovy:57
+    When I go to parking space's suggestion page                                          # ParkingSpaceSuggestionSteps.groovy:64
+    And I select the filter from parking spaces in my preferred sector                    # ParkingSpaceSuggestionSteps.groovy:70
+    And I confirm the filter options                                                      # ParkingSpaceSuggestionSteps.groovy:82
+    Then I can not see the parking space "12" in the suggestions                          # ParkingSpaceSuggestionSteps.groovy:134
+
+--Output from The system has a preferential parking space available on the desired sector web--
+  Scenario: The system has a parking space available on another sector web              # ParkingSpaceSuggestion.feature:98
+    Given I signed up as "rmmc" with preference for parking spaces in the "CCEN" sector # ParkingSpaceSuggestionSteps.groovy:20
+    And the parking space "13" is from the "CIn" sector                                 # ParkingSpaceSuggestionSteps.groovy:45
+    And the parking space "13" is available                                             # ParkingSpaceSuggestionSteps.groovy:53
+    When I go to parking space's suggestion page                                        # ParkingSpaceSuggestionSteps.groovy:64
+    And I select the filter from parking spaces in my preferred sector                  # ParkingSpaceSuggestionSteps.groovy:70
+    And I confirm the filter options                                                    # ParkingSpaceSuggestionSteps.groovy:82
+    Then I can not see the parking space "13" in the suggestions                        # ParkingSpaceSuggestionSteps.groovy:134
+
+--Output from The system has a non-preferential parking space available on the desired sector web--
+  Scenario: The system has a preferential parking space available on the desired sector web # ParkingSpaceSuggestion.feature:107
+    Given I signed up as "bw" with preference for parking spaces in the "CIn" sector        # ParkingSpaceSuggestionSteps.groovy:20
+    And the preferential parking space "14" is from the "CIn" sector                        # ParkingSpaceSuggestionSteps.groovy:49
+    And the parking space "14" is available                                                 # ParkingSpaceSuggestionSteps.groovy:53
+    When I go to parking space's suggestion page                                            # ParkingSpaceSuggestionSteps.groovy:64
+    And I select the filter from parking spaces in my preferred sector                      # ParkingSpaceSuggestionSteps.groovy:70
+    And I select the filter from preferential parking spaces                                # ParkingSpaceSuggestionSteps.groovy:76
+    And I confirm the filter options                                                        # ParkingSpaceSuggestionSteps.groovy:82
+    Then I can see the parking space "14" in the suggestions                                # ParkingSpaceSuggestionSteps.groovy:130
+
+--Output from The system has a preferential parking space available on another sector web--
+  Scenario: The system has a non-preferential parking space available on the desired sector web # ParkingSpaceSuggestion.feature:117
+    Given I signed up as "af" with preference for parking spaces in the "CIn" sector            # ParkingSpaceSuggestionSteps.groovy:20
+    And the parking space "15" is from the "CIn" sector                                         # ParkingSpaceSuggestionSteps.groovy:45
+    And the parking space "15" is available                                                     # ParkingSpaceSuggestionSteps.groovy:53
+    When I go to parking space's suggestion page                                                # ParkingSpaceSuggestionSteps.groovy:64
+    And I select the filter from parking spaces in my preferred sector                          # ParkingSpaceSuggestionSteps.groovy:70
+    And I select the filter from preferential parking spaces                                    # ParkingSpaceSuggestionSteps.groovy:76
+    And I confirm the filter options                                                            # ParkingSpaceSuggestionSteps.groovy:82
+    Then I can not see the parking space "15" in the suggestions                                # ParkingSpaceSuggestionSteps.groovy:134
+
+  Scenario: The system has a preferential parking space available on another sector web    # ParkingSpaceSuggestion.feature:127
+    Given I signed up as "lils" with preference for parking spaces in the "Ã?rea II" sector # ParkingSpaceSuggestionSteps.groovy:20
+    And the preferential parking space "16" is from the "CIn" sector                       # ParkingSpaceSuggestionSteps.groovy:49
+    And the parking space "16" is available                                                # ParkingSpaceSuggestionSteps.groovy:53
+    When I go to parking space's suggestion page                                           # ParkingSpaceSuggestionSteps.groovy:64
+    And I select the filter from parking spaces in my preferred sector                     # ParkingSpaceSuggestionSteps.groovy:70
+    And I select the filter from preferential parking spaces                               # ParkingSpaceSuggestionSteps.groovy:76
+    And I confirm the filter options                                                       # ParkingSpaceSuggestionSteps.groovy:82
+    Then I can not see the parking space "16" in the suggestions                           # ParkingSpaceSuggestionSteps.groovy:134

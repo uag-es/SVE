@@ -1,0 +1,9 @@
+Testsuite: parking space reminder
+Tests run: 0, Failures: 0, Errors: 0, Time elapsed: 0.003 sec
+------------- Standard Output ---------------
+Feature: parking space reminder
+  As a system user
+  I want to be informed where I parked my car
+  So that I can remember where my car is in the parking area
+------------- ---------------- ---------------
+

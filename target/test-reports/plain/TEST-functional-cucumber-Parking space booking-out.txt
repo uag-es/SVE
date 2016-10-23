@@ -1,0 +1,4 @@
+Feature: Parking space booking
+  As a system user
+  I want to book a parking space
+  So I can park on the parking space I'd booked

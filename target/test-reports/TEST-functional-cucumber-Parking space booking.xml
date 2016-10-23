@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="DESKTOP-N49IB15" name="Parking space booking" tests="0" time="0.041" timestamp="2016-10-01T19:35:15">
+  <properties />
+  <system-out><![CDATA[Feature: Parking space booking
+  As a system user
+  I want to book a parking space
+  So I can park on the parking space I'd booked
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
