@@ -24,3 +24,4 @@ Desenvolvedores em 2016.2:
 
 1. Adelino Lourenço da Silva Neto
 2. Mateus Resende Rodrigues
+3. Jefferson Santos Alves
