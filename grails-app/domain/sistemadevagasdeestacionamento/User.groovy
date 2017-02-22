@@ -10,6 +10,6 @@ class User {
         username nullable: false, blank: false, unique: true
         firstName nullable: false, blank: false
         lastName nullable: false, blank: false
-        preferredSector inList: ["CIn", "CCEN", "Área II"]
+        preferredSector inList: ["CIn", "CCEN", "Area II"]
     }
 }

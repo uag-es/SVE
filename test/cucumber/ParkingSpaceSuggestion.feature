@@ -16,17 +16,17 @@ Feature: Parking space suggestion
     Then the systems does not inform the parking space "2" to the user
 
   Scenario: The system has a parking space available on the desired sector
-    Given the system has stored the user "phmb" with preference for parking spaces in the "Área II" sector
+    Given the system has stored the user "phmb" with preference for parking spaces in the "Area II" sector
     And the user is logged in the system
-    And the parking space "3" is from the "Área II" sector
+    And the parking space "3" is from the "Area II" sector
     And the parking space "3" is available
     When the user asks for suggestions of parking spaces on his sector
     Then the systems informs the parking space "3" to the user
 
   Scenario: The system does not have a parking space available on the desired sector
-    Given the system has stored the user "pmmc" with preference for parking spaces in the "Área II" sector
+    Given the system has stored the user "pmmc" with preference for parking spaces in the "Area II" sector
     And the user is logged in the system
-    And the parking space "4" is from the "Área II" sector
+    And the parking space "4" is from the "Area II" sector
     And the parking space "4" is not available
     When the user asks for suggestions of parking spaces on his sector
     Then the systems does not inform the parking space "4" to the user
@@ -56,7 +56,7 @@ Feature: Parking space suggestion
     Then the systems does not inform the parking space "7" to the user
 
   Scenario: The system has a preferential parking space available on another sector
-    Given the system has stored the user "cca2" with preference for parking spaces in the "Área II" sector
+    Given the system has stored the user "cca2" with preference for parking spaces in the "Area II" sector
     And the user is logged in the system
     And the preferential parking space "8" is from the "CIn" sector
     And the parking space "8" is available
@@ -78,8 +78,8 @@ Feature: Parking space suggestion
     Then I can not see the parking space "10" in the suggestions
 
   Scenario: The system has a parking space available on the desired sector web
-    Given I signed up as "alfc" with preference for parking spaces in the "Área II" sector
-    And the parking space "11" is from the "Área II" sector
+    Given I signed up as "alfc" with preference for parking spaces in the "Area II" sector
+    And the parking space "11" is from the "Area II" sector
     And the parking space "11" is available
     When I go to parking space's suggestion page
     And I select the filter from parking spaces in my preferred sector
@@ -87,8 +87,8 @@ Feature: Parking space suggestion
     Then I can see the parking space "11" in the suggestions
 
   Scenario: The system does not have a parking space available on the desired sector web
-    Given I signed up as "rmc" with preference for parking spaces in the "Área II" sector
-    And the parking space "12" is from the "Área II" sector
+    Given I signed up as "rmc" with preference for parking spaces in the "Area II" sector
+    And the parking space "12" is from the "Area II" sector
     And the parking space "12" is not available
     When I go to parking space's suggestion page
     And I select the filter from parking spaces in my preferred sector
@@ -125,7 +125,7 @@ Feature: Parking space suggestion
     Then I can not see the parking space "15" in the suggestions
 
   Scenario: The system has a preferential parking space available on another sector web
-    Given I signed up as "lils" with preference for parking spaces in the "Área II" sector
+    Given I signed up as "lils" with preference for parking spaces in the "Area II" sector
     And the preferential parking space "16" is from the "CIn" sector
     And the parking space "16" is available
     When I go to parking space's suggestion page

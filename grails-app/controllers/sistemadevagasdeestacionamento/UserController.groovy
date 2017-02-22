@@ -22,7 +22,7 @@ class UserController {
     def lembrete(User userInstance) {
         def vaga = ParkingSpace.findByOwner(userInstance)
 
-        flash.message = vaga ? "O usuário estacionou na vaga ${vaga.description}" : "O usuário não estacionou em nenhuma vaga"
+        flash.message = vaga ? "O usuario estacionou na vaga ${vaga.description}" : "O usuario não estacionou em nenhuma vaga"
 
         redirect(controller: "home", action: "index")
     }
