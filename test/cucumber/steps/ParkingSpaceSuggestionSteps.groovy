@@ -134,3 +134,8 @@ Then(~/^I can see the parking space "([^"]*)" in the suggestions$/) { String des
 Then(~/^I can not see the parking space "([^"]*)" in the suggestions$/) { String description ->
     shouldContainParkingSpace(description, false)
 }
+
+
+Then(~/^I can see space's suggestion page$/) { ->
+	at SuggestionPage
+}
