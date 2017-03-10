@@ -58,6 +58,15 @@
 					
 				</li>
 				</g:if>
+				
+				<g:if test="${parkingSpaceInstance?.date}">
+				<li class="fieldcontain">
+					<span id="date-label" class="property-label"><g:message code="parkingSpace.date.label" default="Date" /></span>
+					
+						<span class="property-value" aria-labelledby="date-label"><g:fieldValue bean="${parkingSpaceInstance}" field="date"/></span>
+					
+				</li>
+				</g:if>
 			
 			</ol>
 			<g:form url="[resource:parkingSpaceInstance, action:'delete']" method="DELETE">

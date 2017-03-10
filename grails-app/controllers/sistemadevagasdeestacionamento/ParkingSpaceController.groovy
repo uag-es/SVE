@@ -1,7 +1,11 @@
 package sistemadevagasdeestacionamento
 
+import java.sql.Date;
+import java.util.Date
+
 import grails.converters.JSON
 import grails.transaction.Transactional
+
 
 @Transactional(readOnly = true)
 class ParkingSpaceController {
@@ -24,6 +28,9 @@ class ParkingSpaceController {
 
         if (parkingSpaceInstance.isAvailable()) {
             parkingSpaceInstance.owner = loggedUser
+			//inserção da data na reserva da vaga
+			Date d = new Date()
+			parkingSpaceInstance.date = d.getDateTimeString()
             parkingSpaceInstance.save(flush: true)
         }
 

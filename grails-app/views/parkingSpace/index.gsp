@@ -30,6 +30,7 @@
                         <g:sortableColumn property="description" title="${message(code: 'parkingSpace.description.label', default: 'Description')}"/>
                         <g:sortableColumn property="sector" title="${message(code: 'parkingSpace.sector.label', default: 'Sector')}"/>
                         <g:sortableColumn property="preferential" title="${message(code: 'parkingSpace.preferential.label', default: 'Preferential')}"/>
+                        <g:sortableColumn property="date" title="${message(code: 'parkingSpace.date.label', default: 'Date')}"/>
                     </tr>
                 </thead>
                 <tbody>
@@ -46,6 +47,7 @@
                             <td>${fieldValue(bean: parkingSpaceInstance, field: "description")}</td>
                             <td>${fieldValue(bean: parkingSpaceInstance, field: "sector")}</td>
                             <td><g:formatBoolean boolean="${parkingSpaceInstance.preferential}"/></td>
+                            <td>${fieldValue(bean: parkingSpaceInstance, field: "date")}</td>
                         </tr>
                     </g:each>
                 </tbody>
