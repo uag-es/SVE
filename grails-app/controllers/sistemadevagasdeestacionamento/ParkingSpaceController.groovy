@@ -30,6 +30,16 @@ class ParkingSpaceController {
         redirect(action: "index")
         // TODO: Exibir mensagem de erro caso não seja possível fazer a reserva
     }
+	
+	def cancel(ParkingSpace parkingSpaceInstance) {
+		if (parkingSpaceInstance.isAvailable()==false) {
+			parkingSpaceInstance.owner = null
+			parkingSpaceInstance.save(flush: true)
+		}
+
+		redirect(action: "index")
+		
+	}
 
     def suggestion() {
         def parkingSpaces = ParkingSpace.list().findAll { parkingSpace ->
