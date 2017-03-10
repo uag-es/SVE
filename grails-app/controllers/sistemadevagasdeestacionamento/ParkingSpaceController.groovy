@@ -32,11 +32,13 @@ class ParkingSpaceController {
     }
 	
 	def cancel(ParkingSpace parkingSpaceInstance) {
+		User loggedUser = User.findByUsername(AuthHelper.instance.currentUsername)
 		if (parkingSpaceInstance.isAvailable()==false) {
-			parkingSpaceInstance.owner = null
-			parkingSpaceInstance.save(flush: true)
+			if(parkingSpaceInstance.owner == loggedUser || loggedUser == User.findByUsername('master')){
+				parkingSpaceInstance.owner = null
+				parkingSpaceInstance.save(flush: true)
+			}
 		}
-
 		redirect(action: "index")
 		
 	}
