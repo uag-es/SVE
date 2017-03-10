@@ -41,6 +41,7 @@ class ParkingSpaceController {
 	def cancel(ParkingSpace parkingSpaceInstance) {
 		if (parkingSpaceInstance.isAvailable()==false) {
 			parkingSpaceInstance.owner = null
+			parkingSpaceInstance.date = null
 			parkingSpaceInstance.save(flush: true)
 		}
 
