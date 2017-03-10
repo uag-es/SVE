@@ -21,8 +21,11 @@ class SignUpController {
             user.save(flush: true)
 
             AuthHelper.instance.login(username)
-
+			if(params.firstName == '' || params.lastName == '' || params.username == ''){
+				redirect(controller: 'signUp', action: 'index')
+			}else{
             redirect(controller: 'home', action: 'index')
-        }
+			}
+		}
     }
 }
