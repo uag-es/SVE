@@ -18,7 +18,7 @@ class BootStrap {
     def init = { servletContext ->
         // usuario padrão do sistema, esse login quando você desejar logar no sistema
         // sem ter criado um outro usuario previamente
-        def masterUser = new User(username: "master", firstName: "usuario", lastName: "Master", preferredSector: "CIn")
+        def masterUser = new User(username: "master", firstName: "Usuario", lastName: "Master", preferredSector: "CIn")
         masterUser.save(flush: true)
 
         // Registra vagas de estacionamento
