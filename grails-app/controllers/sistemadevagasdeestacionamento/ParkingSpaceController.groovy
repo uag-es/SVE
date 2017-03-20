@@ -39,9 +39,8 @@ class ParkingSpaceController {
     }
 	
 	def cancel(ParkingSpace parkingSpaceInstance) {
-		User loggedUser = User.findByUsername(AuthHelper.instance.currentUsername)
 		if (parkingSpaceInstance.isAvailable()==false) {
-			if(parkingSpaceInstance.owner == loggedUser || loggedUser == User.findByUsername('master')){
+			if(validLoggedUser(parkingSpaceInstance) == true){
 				parkingSpaceInstance.owner = null
 				parkingSpaceInstance.date = null
 				parkingSpaceInstance.save(flush: true)
@@ -50,6 +49,14 @@ class ParkingSpaceController {
 		}
 		redirect(action: "index")
 		
+	}
+	
+	def validLoggedUser(def parkingSpaceInstance){
+		User loggedUser = User.findByUsername(AuthHelper.instance.currentUsername)
+		if(parkingSpaceInstance.owner == loggedUser || loggedUser == User.findByUsername('master')){
+			return true
+		}
+		return false
 	}
 
     def suggestion() {
