@@ -34,6 +34,7 @@
                     <tr>
                         <td/>
                         <td><input type="submit" name="signUp" value="Sign up"/></td>
+                        <g:link controller="" controller="auth" action="login" >Voltar</g:link>          
                     </tr>
                 </tbody>
             </table>
