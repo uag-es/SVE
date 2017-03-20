@@ -11,7 +11,7 @@
 		<a href="#show-parkingSpace" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+				<li><a class="home" href="${createLink(uri: '/home/index')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
@@ -55,6 +55,15 @@
 					<span id="preferential-label" class="property-label"><g:message code="parkingSpace.preferential.label" default="Preferential" /></span>
 					
 						<span class="property-value" aria-labelledby="preferential-label"><g:formatBoolean boolean="${parkingSpaceInstance?.preferential}" /></span>
+					
+				</li>
+				</g:if>
+				
+				<g:if test="${parkingSpaceInstance?.date}">
+				<li class="fieldcontain">
+					<span id="date-label" class="property-label"><g:message code="parkingSpace.date.label" default="Date" /></span>
+					
+						<span class="property-value" aria-labelledby="date-label"><g:fieldValue bean="${parkingSpaceInstance}" field="date"/></span>
 					
 				</li>
 				</g:if>
