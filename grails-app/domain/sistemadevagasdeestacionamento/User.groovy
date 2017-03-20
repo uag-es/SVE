@@ -14,7 +14,8 @@ class User {
 	} 
 	
 	@Override
-	public String toString(){
+	public String toString()
+	{
 		return "Primeiro nome: $firstName, Segundo nome: $lastName, Setor preferido: $preferredSector"
 	}
 

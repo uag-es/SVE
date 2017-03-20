@@ -51,7 +51,8 @@ class ParkingSpaceController {
 		
 	}
 	
-	def validLoggedUser(def parkingSpaceInstance){
+	def validLoggedUser(def parkingSpaceInstance)
+	{
 		User loggedUser = User.findByUsername(AuthHelper.instance.currentUsername)
 		if(parkingSpaceInstance.owner == loggedUser || loggedUser == User.findByUsername('master')){
 			return true

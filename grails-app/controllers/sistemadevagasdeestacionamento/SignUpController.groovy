@@ -23,7 +23,8 @@ class SignUpController {
 			}
 		}
     }
-	def criar(){
+	def criar(
+		){
 		String username = params.username		
 		def user = User.findByUsername(username)
 		String firstName = params.firstName
