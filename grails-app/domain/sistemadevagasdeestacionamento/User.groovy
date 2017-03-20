@@ -12,9 +12,11 @@ class User {
         lastName nullable: false, blank: false
         preferredSector inList: ["CIn", "CCEN", "Area II"]
     }
+	
 	@Override
-	public String toString(){
+	public String toString()
+	{
     	return "Primeiro nome: $firstName, Segundo nome: $lastName, Setor preferido: $preferredSector"
-		}
+	}
 
 	}
