@@ -134,3 +134,26 @@ Then(~/^I can see the parking space "([^"]*)" in the suggestions$/) { String des
 Then(~/^I can not see the parking space "([^"]*)" in the suggestions$/) { String description ->
     shouldContainParkingSpace(description, false)
 }
+
+
+Then(~/^I can see space's suggestion page$/) { ->
+	at SuggestionPage
+}
+
+
+Given(~/^the system has one account "(.*?)" with preference for parking spaces in the "(.*?)" sector$/) { String username, String sector ->
+	currentUsername = username
+	
+		waitFor { to SignUpPage }
+		page.proceed(username, sector)
+		waitFor { at HomePage }
+}
+
+Then(~/^the system does not create another account$/) { ->
+	
+}
+
+
+
+
+

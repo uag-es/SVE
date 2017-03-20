@@ -1,5 +1,5 @@
 Testsuite: Parking space booking
-Tests run: 0, Failures: 0, Errors: 0, Time elapsed: 0.041 sec
+Tests run: 0, Failures: 0, Errors: 0, Time elapsed: 0,05 sec
 ------------- Standard Output ---------------
 Feature: Parking space booking
   As a system user

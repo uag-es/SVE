@@ -37,3 +37,4 @@ Feature: Parking space booking
     And Other user books the parking space "CIN-03" before me
     When I ask to book the parking space "CIN-03" available
     Then I see a message indicating that the parking space was not possible book the parking space
+ 

@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="DESKTOP-N49IB15" name="Parking space suggestion" tests="16" time="21.775" timestamp="2016-10-01T19:35:15">
+<testsuite errors="0" failures="0" hostname="UAG-UFRPE" name="Parking space suggestion" tests="16" time="28.759" timestamp="2017-02-22T23:16:35">
   <properties />
-  <testcase classname="grails.plugin.cucumber.CucumberTest" name="The system has a parking space available" time="0.484" />
-  <testcase classname="grails.plugin.cucumber.CucumberTest" name="The system does not have a parking space available" time="0.065" />
-  <testcase classname="grails.plugin.cucumber.CucumberTest" name="The system has a parking space available on the desired sector" time="0.057" />
-  <testcase classname="grails.plugin.cucumber.CucumberTest" name="The system does not have a parking space available on the desired sector" time="0.059" />
-  <testcase classname="grails.plugin.cucumber.CucumberTest" name="The system has a parking space available on another sector" time="0.052" />
-  <testcase classname="grails.plugin.cucumber.CucumberTest" name="The system has a preferential parking space available on the desired sector" time="0.046" />
-  <testcase classname="grails.plugin.cucumber.CucumberTest" name="The system has a non-preferential parking space available on the desired sector" time="0.055" />
-  <testcase classname="grails.plugin.cucumber.CucumberTest" name="The system has a preferential parking space available on another sector" time="0.051" />
-  <testcase classname="grails.plugin.cucumber.CucumberTest" name="The system has a parking space available web" time="4.223" />
-  <testcase classname="grails.plugin.cucumber.CucumberTest" name="The system does not have a parking space available web" time="2.144" />
-  <testcase classname="grails.plugin.cucumber.CucumberTest" name="The system has a parking space available on the desired sector web" time="1.715" />
-  <testcase classname="grails.plugin.cucumber.CucumberTest" name="The system does not have a parking space available on the desired sector web" time="1.462" />
-  <testcase classname="grails.plugin.cucumber.CucumberTest" name="The system has a parking space available on another sector web" time="1.461" />
-  <testcase classname="grails.plugin.cucumber.CucumberTest" name="The system has a preferential parking space available on the desired sector web" time="1.487" />
-  <testcase classname="grails.plugin.cucumber.CucumberTest" name="The system has a non-preferential parking space available on the desired sector web" time="1.515" />
-  <testcase classname="grails.plugin.cucumber.CucumberTest" name="The system has a preferential parking space available on another sector web" time="1.487" />
+  <testcase classname="grails.plugin.cucumber.CucumberTest" name="The system has a parking space available" time="1.425" />
+  <testcase classname="grails.plugin.cucumber.CucumberTest" name="The system does not have a parking space available" time="0.068" />
+  <testcase classname="grails.plugin.cucumber.CucumberTest" name="The system has a parking space available on the desired sector" time="0.05" />
+  <testcase classname="grails.plugin.cucumber.CucumberTest" name="The system does not have a parking space available on the desired sector" time="0.055" />
+  <testcase classname="grails.plugin.cucumber.CucumberTest" name="The system has a parking space available on another sector" time="0.047" />
+  <testcase classname="grails.plugin.cucumber.CucumberTest" name="The system has a preferential parking space available on the desired sector" time="0.04" />
+  <testcase classname="grails.plugin.cucumber.CucumberTest" name="The system has a non-preferential parking space available on the desired sector" time="0.048" />
+  <testcase classname="grails.plugin.cucumber.CucumberTest" name="The system has a preferential parking space available on another sector" time="0.047" />
+  <testcase classname="grails.plugin.cucumber.CucumberTest" name="The system has a parking space available web" time="5.365" />
+  <testcase classname="grails.plugin.cucumber.CucumberTest" name="The system does not have a parking space available web" time="1.865" />
+  <testcase classname="grails.plugin.cucumber.CucumberTest" name="The system has a parking space available on the desired sector web" time="2.206" />
+  <testcase classname="grails.plugin.cucumber.CucumberTest" name="The system does not have a parking space available on the desired sector web" time="2.157" />
+  <testcase classname="grails.plugin.cucumber.CucumberTest" name="The system has a parking space available on another sector web" time="2.15" />
+  <testcase classname="grails.plugin.cucumber.CucumberTest" name="The system has a preferential parking space available on the desired sector web" time="2.1" />
+  <testcase classname="grails.plugin.cucumber.CucumberTest" name="The system has a non-preferential parking space available on the desired sector web" time="2.248" />
+  <testcase classname="grails.plugin.cucumber.CucumberTest" name="The system has a preferential parking space available on another sector web" time="2.24" />
   <system-out><![CDATA[Feature: Parking space suggestion
 
 --Output from The system has a parking space available--
@@ -40,18 +40,18 @@
 
 --Output from The system does not have a parking space available on the desired sector--
   Scenario: The system has a parking space available on the desired sector                                 # ParkingSpaceSuggestion.feature:18
-    Given the system has stored the user "phmb" with preference for parking spaces in the "Ã�rea II" sector # ParkingSpaceSuggestionSteps.groovy:9
+    Given the system has stored the user "phmb" with preference for parking spaces in the "Area II" sector # ParkingSpaceSuggestionSteps.groovy:9
     And the user is logged in the system                                                                   # ParkingSpaceSuggestionSteps.groovy:28
-    And the parking space "3" is from the "Ã�rea II" sector                                                 # ParkingSpaceSuggestionSteps.groovy:45
+    And the parking space "3" is from the "Area II" sector                                                 # ParkingSpaceSuggestionSteps.groovy:45
     And the parking space "3" is available                                                                 # ParkingSpaceSuggestionSteps.groovy:53
     When the user asks for suggestions of parking spaces on his sector                                     # ParkingSpaceSuggestionSteps.groovy:98
     Then the systems informs the parking space "3" to the user                                             # ParkingSpaceSuggestionSteps.groovy:116
 
 --Output from The system has a parking space available on another sector--
   Scenario: The system does not have a parking space available on the desired sector                       # ParkingSpaceSuggestion.feature:26
-    Given the system has stored the user "pmmc" with preference for parking spaces in the "Ã�rea II" sector # ParkingSpaceSuggestionSteps.groovy:9
+    Given the system has stored the user "pmmc" with preference for parking spaces in the "Area II" sector # ParkingSpaceSuggestionSteps.groovy:9
     And the user is logged in the system                                                                   # ParkingSpaceSuggestionSteps.groovy:28
-    And the parking space "4" is from the "Ã�rea II" sector                                                 # ParkingSpaceSuggestionSteps.groovy:45
+    And the parking space "4" is from the "Area II" sector                                                 # ParkingSpaceSuggestionSteps.groovy:45
     And the parking space "4" is not available                                                             # ParkingSpaceSuggestionSteps.groovy:57
     When the user asks for suggestions of parking spaces on his sector                                     # ParkingSpaceSuggestionSteps.groovy:98
     Then the systems does not inform the parking space "4" to the user                                     # ParkingSpaceSuggestionSteps.groovy:120
@@ -85,7 +85,7 @@
 
 --Output from The system has a parking space available web--
   Scenario: The system has a preferential parking space available on another sector                        # ParkingSpaceSuggestion.feature:58
-    Given the system has stored the user "cca2" with preference for parking spaces in the "Ã�rea II" sector # ParkingSpaceSuggestionSteps.groovy:9
+    Given the system has stored the user "cca2" with preference for parking spaces in the "Area II" sector # ParkingSpaceSuggestionSteps.groovy:9
     And the user is logged in the system                                                                   # ParkingSpaceSuggestionSteps.groovy:28
     And the preferential parking space "8" is from the "CIn" sector                                        # ParkingSpaceSuggestionSteps.groovy:49
     And the parking space "8" is available                                                                 # ParkingSpaceSuggestionSteps.groovy:53
@@ -110,8 +110,8 @@
 
 --Output from The system does not have a parking space available on the desired sector web--
   Scenario: The system has a parking space available on the desired sector web             # ParkingSpaceSuggestion.feature:80
-    Given I signed up as "alfc" with preference for parking spaces in the "Ã�rea II" sector # ParkingSpaceSuggestionSteps.groovy:20
-    And the parking space "11" is from the "Ã�rea II" sector                                # ParkingSpaceSuggestionSteps.groovy:45
+    Given I signed up as "alfc" with preference for parking spaces in the "Area II" sector # ParkingSpaceSuggestionSteps.groovy:20
+    And the parking space "11" is from the "Area II" sector                                # ParkingSpaceSuggestionSteps.groovy:45
     And the parking space "11" is available                                                # ParkingSpaceSuggestionSteps.groovy:53
     When I go to parking space's suggestion page                                           # ParkingSpaceSuggestionSteps.groovy:64
     And I select the filter from parking spaces in my preferred sector                     # ParkingSpaceSuggestionSteps.groovy:70
@@ -120,8 +120,8 @@
 
 --Output from The system has a parking space available on another sector web--
   Scenario: The system does not have a parking space available on the desired sector web  # ParkingSpaceSuggestion.feature:89
-    Given I signed up as "rmc" with preference for parking spaces in the "Ã�rea II" sector # ParkingSpaceSuggestionSteps.groovy:20
-    And the parking space "12" is from the "Ã�rea II" sector                               # ParkingSpaceSuggestionSteps.groovy:45
+    Given I signed up as "rmc" with preference for parking spaces in the "Area II" sector # ParkingSpaceSuggestionSteps.groovy:20
+    And the parking space "12" is from the "Area II" sector                               # ParkingSpaceSuggestionSteps.groovy:45
     And the parking space "12" is not available                                           # ParkingSpaceSuggestionSteps.groovy:57
     When I go to parking space's suggestion page                                          # ParkingSpaceSuggestionSteps.groovy:64
     And I select the filter from parking spaces in my preferred sector                    # ParkingSpaceSuggestionSteps.groovy:70
@@ -161,7 +161,7 @@
     Then I can not see the parking space "15" in the suggestions                                # ParkingSpaceSuggestionSteps.groovy:134
 
   Scenario: The system has a preferential parking space available on another sector web    # ParkingSpaceSuggestion.feature:127
-    Given I signed up as "lils" with preference for parking spaces in the "Ã�rea II" sector # ParkingSpaceSuggestionSteps.groovy:20
+    Given I signed up as "lils" with preference for parking spaces in the "Area II" sector # ParkingSpaceSuggestionSteps.groovy:20
     And the preferential parking space "16" is from the "CIn" sector                       # ParkingSpaceSuggestionSteps.groovy:49
     And the parking space "16" is available                                                # ParkingSpaceSuggestionSteps.groovy:53
     When I go to parking space's suggestion page                                           # ParkingSpaceSuggestionSteps.groovy:64

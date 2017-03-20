@@ -12,7 +12,7 @@
 
         <div class="nav" role="navigation">
             <ul>
-                <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+                <li><a class="home" href="${createLink(uri: '/home/index')}"><g:message code="default.home.label"/></a></li>
                 <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]"/></g:link></li>
             </ul>
         </div>
@@ -30,6 +30,7 @@
                         <g:sortableColumn property="description" title="${message(code: 'parkingSpace.description.label', default: 'Description')}"/>
                         <g:sortableColumn property="sector" title="${message(code: 'parkingSpace.sector.label', default: 'Sector')}"/>
                         <g:sortableColumn property="preferential" title="${message(code: 'parkingSpace.preferential.label', default: 'Preferential')}"/>
+                        <g:sortableColumn property="date" title="${message(code: 'parkingSpace.date.label', default: 'Date')}"/>
                     </tr>
                 </thead>
                 <tbody>
@@ -37,7 +38,9 @@
                         <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
                             <td>
                                 <g:if test="${parkingSpaceInstance.owner}">
+                                	
                                     <g:fieldValue bean="${parkingSpaceInstance}" field="owner.firstName" />
+                                    <g:link action="cancel" id="${parkingSpaceInstance.id}">Cancelar</g:link>
                                 </g:if>
                                 <g:else>
                                     <g:link action="book" id="${parkingSpaceInstance.id}">Reservar</g:link>
@@ -46,6 +49,7 @@
                             <td>${fieldValue(bean: parkingSpaceInstance, field: "description")}</td>
                             <td>${fieldValue(bean: parkingSpaceInstance, field: "sector")}</td>
                             <td><g:formatBoolean boolean="${parkingSpaceInstance.preferential}"/></td>
+                            <td>${fieldValue(bean: parkingSpaceInstance, field: "date")}</td>
                         </tr>
                     </g:each>
                 </tbody>
