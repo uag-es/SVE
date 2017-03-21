@@ -1,7 +1,11 @@
 package sistemadevagasdeestacionamento
 
+import java.sql.Date;
+import java.util.Date
+
 import grails.converters.JSON
 import grails.transaction.Transactional
+
 
 @Transactional(readOnly = true)
 class ParkingSpaceController {
@@ -24,12 +28,37 @@ class ParkingSpaceController {
 
         if (parkingSpaceInstance.isAvailable()) {
             parkingSpaceInstance.owner = loggedUser
+			//inserção da data na reserva da vaga
+			Date d = new Date()
+			parkingSpaceInstance.date = d.getDateTimeString()
             parkingSpaceInstance.save(flush: true)
         }
 
         redirect(action: "index")
         // TODO: Exibir mensagem de erro caso nÃ£o seja possÃ­vel fazer a reserva
     }
+	
+	def cancel(ParkingSpace parkingSpaceInstance) {
+		if (parkingSpaceInstance.isAvailable()==false) {
+			if(validLoggedUser(parkingSpaceInstance) == true){
+				parkingSpaceInstance.owner = null
+				parkingSpaceInstance.date = null
+				parkingSpaceInstance.save(flush: true)
+			}
+
+		}
+		redirect(action: "index")
+		
+	}
+	
+	def validLoggedUser(def parkingSpaceInstance)
+	{
+		User loggedUser = User.findByUsername(AuthHelper.instance.currentUsername)
+		if(parkingSpaceInstance.owner == loggedUser || loggedUser == User.findByUsername('master')){
+			return true
+		}
+		return false
+	}
 
     def suggestion() {
         def parkingSpaces = ParkingSpace.list().findAll { parkingSpace ->

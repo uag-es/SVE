@@ -1,5 +1,5 @@
 Testsuite: Parking space suggestion
-Tests run: 16, Failures: 0, Errors: 0, Time elapsed: 21.775 sec
+Tests run: 16, Failures: 0, Errors: 0, Time elapsed: 28,759 sec
 ------------- Standard Output ---------------
 Feature: Parking space suggestion
 
@@ -24,18 +24,18 @@ Feature: Parking space suggestion
 
 --Output from The system does not have a parking space available on the desired sector--
   Scenario: The system has a parking space available on the desired sector                                 # ParkingSpaceSuggestion.feature:18
-    Given the system has stored the user "phmb" with preference for parking spaces in the "Ã?rea II" sector # ParkingSpaceSuggestionSteps.groovy:9
+    Given the system has stored the user "phmb" with preference for parking spaces in the "Area II" sector # ParkingSpaceSuggestionSteps.groovy:9
     And the user is logged in the system                                                                   # ParkingSpaceSuggestionSteps.groovy:28
-    And the parking space "3" is from the "Ã?rea II" sector                                                 # ParkingSpaceSuggestionSteps.groovy:45
+    And the parking space "3" is from the "Area II" sector                                                 # ParkingSpaceSuggestionSteps.groovy:45
     And the parking space "3" is available                                                                 # ParkingSpaceSuggestionSteps.groovy:53
     When the user asks for suggestions of parking spaces on his sector                                     # ParkingSpaceSuggestionSteps.groovy:98
     Then the systems informs the parking space "3" to the user                                             # ParkingSpaceSuggestionSteps.groovy:116
 
 --Output from The system has a parking space available on another sector--
   Scenario: The system does not have a parking space available on the desired sector                       # ParkingSpaceSuggestion.feature:26
-    Given the system has stored the user "pmmc" with preference for parking spaces in the "Ã?rea II" sector # ParkingSpaceSuggestionSteps.groovy:9
+    Given the system has stored the user "pmmc" with preference for parking spaces in the "Area II" sector # ParkingSpaceSuggestionSteps.groovy:9
     And the user is logged in the system                                                                   # ParkingSpaceSuggestionSteps.groovy:28
-    And the parking space "4" is from the "Ã?rea II" sector                                                 # ParkingSpaceSuggestionSteps.groovy:45
+    And the parking space "4" is from the "Area II" sector                                                 # ParkingSpaceSuggestionSteps.groovy:45
     And the parking space "4" is not available                                                             # ParkingSpaceSuggestionSteps.groovy:57
     When the user asks for suggestions of parking spaces on his sector                                     # ParkingSpaceSuggestionSteps.groovy:98
     Then the systems does not inform the parking space "4" to the user                                     # ParkingSpaceSuggestionSteps.groovy:120
@@ -69,7 +69,7 @@ Feature: Parking space suggestion
 
 --Output from The system has a parking space available web--
   Scenario: The system has a preferential parking space available on another sector                        # ParkingSpaceSuggestion.feature:58
-    Given the system has stored the user "cca2" with preference for parking spaces in the "Ã?rea II" sector # ParkingSpaceSuggestionSteps.groovy:9
+    Given the system has stored the user "cca2" with preference for parking spaces in the "Area II" sector # ParkingSpaceSuggestionSteps.groovy:9
     And the user is logged in the system                                                                   # ParkingSpaceSuggestionSteps.groovy:28
     And the preferential parking space "8" is from the "CIn" sector                                        # ParkingSpaceSuggestionSteps.groovy:49
     And the parking space "8" is available                                                                 # ParkingSpaceSuggestionSteps.groovy:53
@@ -94,8 +94,8 @@ Feature: Parking space suggestion
 
 --Output from The system does not have a parking space available on the desired sector web--
   Scenario: The system has a parking space available on the desired sector web             # ParkingSpaceSuggestion.feature:80
-    Given I signed up as "alfc" with preference for parking spaces in the "Ã?rea II" sector # ParkingSpaceSuggestionSteps.groovy:20
-    And the parking space "11" is from the "Ã?rea II" sector                                # ParkingSpaceSuggestionSteps.groovy:45
+    Given I signed up as "alfc" with preference for parking spaces in the "Area II" sector # ParkingSpaceSuggestionSteps.groovy:20
+    And the parking space "11" is from the "Area II" sector                                # ParkingSpaceSuggestionSteps.groovy:45
     And the parking space "11" is available                                                # ParkingSpaceSuggestionSteps.groovy:53
     When I go to parking space's suggestion page                                           # ParkingSpaceSuggestionSteps.groovy:64
     And I select the filter from parking spaces in my preferred sector                     # ParkingSpaceSuggestionSteps.groovy:70
@@ -104,8 +104,8 @@ Feature: Parking space suggestion
 
 --Output from The system has a parking space available on another sector web--
   Scenario: The system does not have a parking space available on the desired sector web  # ParkingSpaceSuggestion.feature:89
-    Given I signed up as "rmc" with preference for parking spaces in the "Ã?rea II" sector # ParkingSpaceSuggestionSteps.groovy:20
-    And the parking space "12" is from the "Ã?rea II" sector                               # ParkingSpaceSuggestionSteps.groovy:45
+    Given I signed up as "rmc" with preference for parking spaces in the "Area II" sector # ParkingSpaceSuggestionSteps.groovy:20
+    And the parking space "12" is from the "Area II" sector                               # ParkingSpaceSuggestionSteps.groovy:45
     And the parking space "12" is not available                                           # ParkingSpaceSuggestionSteps.groovy:57
     When I go to parking space's suggestion page                                          # ParkingSpaceSuggestionSteps.groovy:64
     And I select the filter from parking spaces in my preferred sector                    # ParkingSpaceSuggestionSteps.groovy:70
@@ -145,7 +145,7 @@ Feature: Parking space suggestion
     Then I can not see the parking space "15" in the suggestions                                # ParkingSpaceSuggestionSteps.groovy:134
 
   Scenario: The system has a preferential parking space available on another sector web    # ParkingSpaceSuggestion.feature:127
-    Given I signed up as "lils" with preference for parking spaces in the "Ã?rea II" sector # ParkingSpaceSuggestionSteps.groovy:20
+    Given I signed up as "lils" with preference for parking spaces in the "Area II" sector # ParkingSpaceSuggestionSteps.groovy:20
     And the preferential parking space "16" is from the "CIn" sector                       # ParkingSpaceSuggestionSteps.groovy:49
     And the parking space "16" is available                                                # ParkingSpaceSuggestionSteps.groovy:53
     When I go to parking space's suggestion page                                           # ParkingSpaceSuggestionSteps.groovy:64
@@ -173,19 +173,19 @@ Feature: Parking space suggestion
 --Output from The system has a non-preferential parking space available on the desired sector web--
 --Output from The system has a preferential parking space available on another sector web--------------- ---------------- ---------------
 
-Testcase: The system has a parking space available took 0.484 sec
-Testcase: The system does not have a parking space available took 0.065 sec
-Testcase: The system has a parking space available on the desired sector took 0.057 sec
-Testcase: The system does not have a parking space available on the desired sector took 0.059 sec
-Testcase: The system has a parking space available on another sector took 0.052 sec
-Testcase: The system has a preferential parking space available on the desired sector took 0.046 sec
-Testcase: The system has a non-preferential parking space available on the desired sector took 0.055 sec
-Testcase: The system has a preferential parking space available on another sector took 0.051 sec
-Testcase: The system has a parking space available web took 4.223 sec
-Testcase: The system does not have a parking space available web took 2.144 sec
-Testcase: The system has a parking space available on the desired sector web took 1.715 sec
-Testcase: The system does not have a parking space available on the desired sector web took 1.462 sec
-Testcase: The system has a parking space available on another sector web took 1.461 sec
-Testcase: The system has a preferential parking space available on the desired sector web took 1.487 sec
-Testcase: The system has a non-preferential parking space available on the desired sector web took 1.515 sec
-Testcase: The system has a preferential parking space available on another sector web took 1.487 sec
+Testcase: The system has a parking space available took 1,425 sec
+Testcase: The system does not have a parking space available took 0,067 sec
+Testcase: The system has a parking space available on the desired sector took 0,05 sec
+Testcase: The system does not have a parking space available on the desired sector took 0,055 sec
+Testcase: The system has a parking space available on another sector took 0,047 sec
+Testcase: The system has a preferential parking space available on the desired sector took 0,04 sec
+Testcase: The system has a non-preferential parking space available on the desired sector took 0,048 sec
+Testcase: The system has a preferential parking space available on another sector took 0,047 sec
+Testcase: The system has a parking space available web took 5,365 sec
+Testcase: The system does not have a parking space available web took 1,865 sec
+Testcase: The system has a parking space available on the desired sector web took 2,206 sec
+Testcase: The system does not have a parking space available on the desired sector web took 2,157 sec
+Testcase: The system has a parking space available on another sector web took 2,15 sec
+Testcase: The system has a preferential parking space available on the desired sector web took 2,1 sec
+Testcase: The system has a non-preferential parking space available on the desired sector web took 2,248 sec
+Testcase: The system has a preferential parking space available on another sector web took 2,24 sec
