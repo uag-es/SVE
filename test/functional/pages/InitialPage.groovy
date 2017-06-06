@@ -15,11 +15,11 @@ class InitialPage extends Page {
     }
 
     def verifyMessage(String spot){
-        $("div.message").text() == ("O usuário estacionou na vaga ${spot}" as String)
+        $("div.message").text() == ("O usuario estacionou na vaga ${spot}" as String)
     }
 
     def verifyMessage(){
-        $("div.message").text() == ("O usuário não estacionou em nenhuma vaga")
+        $("div.message").text() == ("O usuario nao estacionou em nenhuma vaga")
     }
 
 }*/

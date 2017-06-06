@@ -9,7 +9,7 @@ public final class AuthHelper {
     }
 
     public void signup(String username, String sector) {
-        def user = new User(username: username, firstName: "Primeiro nome", lastName: "Último nome", preferredSector: sector)
+        def user = new User(username: username, firstName: "Primeiro nome", lastName: "Ultimo nome", preferredSector: sector)
         user.save(flush:true)
     }
 
