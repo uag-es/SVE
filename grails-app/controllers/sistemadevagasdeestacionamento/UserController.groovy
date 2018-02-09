@@ -44,6 +44,23 @@ class UserController {
         }
     }
 
+	def createAndSave() {
+		User userInstance = new User(params)
+		if (userInstance != null) {
+			if (!userInstance.hasErrors()) {
+				userInstance.save(flush: true)
+
+				flash.message = message(code: 'default.created.message', args: [message(code: 'user.label', default: 'User'), userInstance.id])
+
+				redirect(action: "show", id: userInstance.id)
+			} else {
+				respond(userInstance.errors, view: 'create')
+			}
+		} else {
+			notFound()
+		}
+	}
+	
     def edit(User userInstance) {
         respond(userInstance)
     }
