@@ -1,4 +1,5 @@
 <%@ page import="sistemadevagasdeestacionamento.ParkingSpace" %>
+<%@ page import="sistemadevagasdeestacionamento.ParkingSpaceController" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,8 +15,6 @@
             <ul>
                 <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
                 <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]"/></g:link></li>
-                                <li><g:link class="listar" action="listar"><g:message/>Listar Vagas Disponiveis</g:link></li>
-
                 
             </ul>
         </div>
@@ -36,7 +35,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <g:each in="${parkingSpaceInstanceList}" status="i" var="parkingSpaceInstance">
+                    <g:each in="${sistemadevagasdeestacionamento.ParkingSpaceController.listarVagasDisponiveis()}" status="i" var="parkingSpaceInstance">
                         <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
                             <td>
                                 <g:if test="${parkingSpaceInstance.owner}">

@@ -101,6 +101,16 @@ class ParkingSpaceController {
         }
     }
 
+	public static ArrayList listarVagasDisponiveis(){
+		ArrayList<ParkingSpace> lista = new ArrayList<>()
+		for(int i = 0; i < ParkingSpace.list().size(); i++){
+			if(ParkingSpace.list().get(i).owner == null){
+				lista.add(ParkingSpace.list().get(i))
+			}
+		}
+		return lista
+	}
+
     @Transactional
     def delete(ParkingSpace parkingSpaceInstance) {
         if (parkingSpaceInstance != null) {
@@ -119,4 +129,8 @@ class ParkingSpaceController {
 
         redirect(action: "index", method: "GET")
     }
+	
+	def listar(){
+		render view: "listar"
+	}
 }
