@@ -38,9 +38,12 @@
                             <td>
                                 <g:if test="${parkingSpaceInstance.owner}">
                                     <g:fieldValue bean="${parkingSpaceInstance}" field="owner.firstName" />
+                               			
                                 </g:if>
                                 <g:else>
                                     <g:link action="book" id="${parkingSpaceInstance.id}">Reservar</g:link>
+                                	<g:link action="delete" id="${parkingSpaceInstance.id}">Deletar </g:link>
+                                
                                 </g:else>
                             </td>
                             <td>${fieldValue(bean: parkingSpaceInstance, field: "description")}</td>
