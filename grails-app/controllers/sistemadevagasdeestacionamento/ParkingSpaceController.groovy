@@ -68,9 +68,8 @@ class ParkingSpaceController {
         if (parkingSpaceInstance != null) {
             if (!parkingSpaceInstance.hasErrors()) {
                 parkingSpaceInstance.save(flush: true)
-
-                flash.message = message(code: 'default.created.message', args: [message(code: 'parkingSpace.label', default: 'ParkingSpace'), parkingSpaceInstance.id])
-
+				showMessage("created", parkingSpaceInstance)
+               
                 redirect(parkingSpaceInstance)
             } else {
                 respond(parkingSpaceInstance.errors, view: 'create')
@@ -89,9 +88,8 @@ class ParkingSpaceController {
         if (parkingSpaceInstance != null) {
             if (!parkingSpaceInstance.hasErrors()) {
                 parkingSpaceInstance.save(flush: true)
-
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'parkingSpace.label', default: 'ParkingSpace'), parkingSpaceInstance.id])
-
+				showMessage("update", parkingSpaceInstance)
+               
                 redirect(parkingSpaceInstance)
             } else {
                 respond(parkingSpaceInstance.errors, view: 'edit')
@@ -116,8 +114,8 @@ class ParkingSpaceController {
         if (parkingSpaceInstance != null) {
             parkingSpaceInstance.delete(flush: true)
 
-            flash.message = message(code: 'default.deleted.message', args: [message(code: 'parkingSpace.label', default: 'ParkingSpace'), parkingSpaceInstance.id])
-
+			showMessage("delete", parkingSpaceInstance)
+            
             redirect(action: "index", method: "GET")
         } else {
             notFound()
@@ -125,12 +123,28 @@ class ParkingSpaceController {
     }
 
     protected void notFound() {
-        flash.message = message(code: 'default.not.found.message', args: [message(code: 'parkingSpace.label', default: 'ParkingSpace'), params.id])
-
+		showMessage("notFound", parkingSpaceInstance)
         redirect(action: "index", method: "GET")
     }
 	
 	def listar(){
 		render view: "listar"
 	}
+
+	//mostra uma mensagem de erro dependente pela necessidade
+	def showMessage(String s, ParkingSpace parkingSpaceInstance){
+		if(s.equals("delete")){
+			flash.message = message(code: 'default.deleted.message', args: [message(code: 'parkingSpace.label', default: 'ParkingSpace'), parkingSpaceInstance.id])
+		
+		}else if(s.equals("notFound")){
+			flash.message = message(code: 'default.not.found.message', args: [message(code: 'parkingSpace.label', default: 'ParkingSpace'), params.id])
+		
+		}else if(s.equals("update")){
+			flash.message = message(code: 'default.updated.message', args: [message(code: 'parkingSpace.label', default: 'ParkingSpace'), parkingSpaceInstance.id])
+	
+		}else if(s.equals("created")){
+			flash.message = message(code: 'default.created.message', args: [message(code: 'parkingSpace.label', default: 'ParkingSpace'), parkingSpaceInstance.id])
+		}
+	}
+	
 }
