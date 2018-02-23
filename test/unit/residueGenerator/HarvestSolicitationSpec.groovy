@@ -9,12 +9,11 @@ import spock.lang.Specification
 @TestFor(HarvestSolicitation)
 class HarvestSolicitationSpec extends Specification {
 
+	@override	
     def setup() {
     }
-
+	@override
     def cleanup() {
     }
 
-    void "test something"() {
-    }
 }
