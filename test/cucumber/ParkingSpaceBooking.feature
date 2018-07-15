@@ -3,13 +3,13 @@ Feature: Parking space booking
   I want to book a parking space
   So I can park on the parking space I'd booked
 
-  @ignore
+  
   Scenario: Book parking space
-    Given the system has the user "rjss" with password "123" with "CCEN" as prefered sector
+    Given the system has the user "rjss" with "CCEN" as prefered sector
     And the user logged in the system
     And the parking space "CIN-01" is available in the system
-    When the user tries to book the parking space "CIN-01"
-    Then the system books the parking space for the user
+    When the user "rjss" tries to book the parking space "CIN-01"
+    Then the system books "CIN-01" the parking space for the user "rjss"
 
   @ignore
   Scenario: Try to book an unavailable parking space
