@@ -9,9 +9,14 @@ public final class AuthHelper {
     }
 
     public void signup(String username, String sector) {
-        def user = new User(username: username, firstName: "Primeiro nome", lastName: "Ultimo nome", preferredSector: sector)
+        def user = new User(username: username, firstName: "Primeironome", lastName: "Ultimonome", preferredSector: sector)
         user.save(flush:true)
     }
+	
+	public void signup(String username, String firstName, String lastName) {
+		def user = new User(username: username, firstName: firstName, lastName: lastName, preferredSector: "CIn")
+		user.save(flush:true)
+	}
 
     public void login(String username) {
         mCurrentUsername = username
@@ -20,4 +25,5 @@ public final class AuthHelper {
     public void logout() {
         mCurrentUsername = null
     }
+	
 }

@@ -11,9 +11,25 @@ class SignUpPage extends Page {
 
     def proceed(String username, String preferredSector) {
         $("input[name='username']").value(username)
-        $("input[name='firstName']").value("Primeiro nome")
-        $("input[name='lastName']").value("Ultimo nome")
+        $("input[name='firstName']").value("Primeironome")
+        $("input[name='lastName']").value("Ultimonome")
         $("select[name='preferredSector']").value(preferredSector)
         $("input[name='signUp']").click()
     }
+	
+	def register(String username, String firstname, String lastname) {
+		$("input[name='username']").value(username)
+		$("input[name='firstname']").value(firstname)
+		$("input[name='lastname']").value(lastname)
+		
+	}
+	
+	def preferredSector(String preferredSector){
+		$("select[name='preferredSector']").value(preferredSector)
+	}
+	
+	def confirmoSignUp(){
+		$("input[name='signUp']").click()
+	}
+	
 }
