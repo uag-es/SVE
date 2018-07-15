@@ -18,3 +18,14 @@ When(~/^I click in sign in with username "(.*?)"$/) { String username ->
 Then(~/^The home page is loaded$/) { ->
     page == HomePage
 }
+
+When(~/^I remove user "(.*?)"$/) { String username ->
+	currentUsername = username
+	def user = User.findByUsername(currentUsername)
+	user.delete(flush: true)
+}
+
+Then(~/^the systems does not have user "(.*?)" storaged$/) { String arg1 ->
+	    user = User.findByUsername(currentUsername)
+		user == null
+}
