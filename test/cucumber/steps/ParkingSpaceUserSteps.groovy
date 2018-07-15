@@ -15,7 +15,7 @@ When(~/^I click in sign in with username "(.*?)"$/) { String username ->
 	page.login(username,"")
 }
 
-Then(~/^The home page is loaded$/) { ->
+Then(~/^the home page is loaded$/) { ->
     page == HomePage
 }
 
@@ -28,4 +28,10 @@ When(~/^I remove user "(.*?)"$/) { String username ->
 Then(~/^the systems does not have user "(.*?)" storaged$/) { String arg1 ->
 	    user = User.findByUsername(currentUsername)
 		user == null
+}
+
+When(~/^I update user "(.*?)" with "(.*?)" sector$/) { String username, String sector ->
+	def user = User.findByUsername(username)
+	user.preferredSector = sector
+	user.save(flush: true)
 }
