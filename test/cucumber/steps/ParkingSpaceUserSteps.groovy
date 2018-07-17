@@ -35,3 +35,18 @@ When(~/^I update user "(.*?)" with "(.*?)" sector$/) { String username, String s
 	user.preferredSector = sector
 	user.save(flush: true)
 }
+
+Given(~/^Im at sign up page$/) { ->
+	to SignUpPage
+	at SignUpPage
+}
+
+When(~/^I fill username with "(.*?)" and "(.*?)" as prefered sector$/) { String username, String sector ->
+	
+	page.proceed(username, sector)
+}
+
+Then(~/^Im still in sign up page$/) { ->
+	page == SignUpPage
+}
+

@@ -9,6 +9,11 @@ Feature: Parking space user
     When I click in sign in with username ""
     Then the home page is loaded
     
+  Scenario:Sign up with blank username
+    Given Im at sign up page
+    When I fill username with "" and "CIn" as prefered sector
+    Then Im still in sign up page
+    
   Scenario:Remove system user
     Given the system has stored the user "Kadu" with preference for parking spaces in the "CIn" sector
     When I remove user "Kadu"
