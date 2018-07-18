@@ -20,6 +20,9 @@ https://github.com/pauloborba/SistemaDeVagasDeEstacionamento
 
 -------------------------------------------------------------------------------------------------------------------
 
-Desenvolvedores em 2016.2:
+Desenvolvedores em 2018.1:
 
-1. 
+1. Danilo Bion
+2. Geovanio Jose
+3. Jailson Silva
+4. Jose Cleidson 
