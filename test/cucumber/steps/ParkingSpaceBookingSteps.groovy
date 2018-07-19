@@ -1,5 +1,5 @@
-/*
-import org.apache.shiro.SecurityUtils
+
+/*import org.apache.shiro.SecurityUtils
 import org.apache.shiro.crypto.hash.Sha512Hash
 import pages.LoginPage
 import pages.ParkingSpaceListPage
@@ -173,4 +173,5 @@ Then(~/^I see a message indicating that the parking space was booked with succes
 Then(~/^I see a message indicating that the parking space was not possible book the parking space$/){ ->
     waitFor { at ParkingSpaceListPage }
     assert page.verifyFailBookMessage()
-}*/
+}
+*/
