@@ -11,7 +11,7 @@ Given(~/^Im at login page$/) { ->
 	at LoginPage
 }
 
-When(~/^I click in sign in with username "(.*?)"$/) { String username ->
+When(~/^I click in sign in with USERNAME "(.*?)"$/) { String username ->
 	page.login(username,"")
 }
 
