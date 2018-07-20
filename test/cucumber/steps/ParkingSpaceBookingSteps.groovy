@@ -1,3 +1,12 @@
+package steps
+
+import pages.*
+import pages.LoginPage
+import sistemadevagasdeestacionamento.*
+
+this.metaClass.mixin(cucumber.api.groovy.Hooks)
+this.metaClass.mixin(cucumber.api.groovy.EN)
+
 /*
 import org.apache.shiro.SecurityUtils
 import org.apache.shiro.crypto.hash.Sha512Hash
@@ -174,3 +183,42 @@ Then(~/^I see a message indicating that the parking space was not possible book 
     waitFor { at ParkingSpaceListPage }
     assert page.verifyFailBookMessage()
 }*/
+
+
+Given(~/^the system has the user "(.*?)" with "(.*?)" as prefered sector$/) { String username, String sector ->
+	currentUsername = username
+	AuthHelper.instance.signup(username, sector)
+	def user = User.findByUsername(username)
+	assert user.username == username
+}
+And(~/^the user logged in the system$/) { ->
+	AuthHelper.instance.login(currentUsername)
+	assert AuthHelper.instance.currentUsername == currentUsername
+}
+And(~/^the parking space "(.*?)" is available in the system$/) { String description ->
+	parkingSpace = new ParkingSpace()
+    parkingSpace.setDescription(description)
+    parkingSpace.setSector("CIn")
+    parkingSpace.save(flush: true)
+    parkingSpaceDescription = description
+    assert ParkingSpace.findByDescription(description).isAvailable()
+}
+When(~/^the user "(.*?)" tries to book the parking space "(.*?)"$/) { String username, String description ->
+	def booked = false
+    User loggedUser = User.findByUsername(username)
+    parkingSpace = ParkingSpace.findById(ParkingSpace.findByDescription(description).getId())
+    if(parkingSpace.isAvailable()) {
+        parkingSpace.setOwner(loggedUser)
+        booked = true
+    }
+    parkingSpace.save(flush: true)
+    assert booked
+}
+Then(~/^the system books "(.*?)" the parking space for the user "(.*?)"$/) { String description, String username ->
+	def user = User.findByUsername(username)
+	
+	parkingSpace = ParkingSpace.findById(ParkingSpace.findByDescription(description).getId())
+	if(parkingSpace.isAvailable()) {
+		assert parkingSpace.getOwner().equals(user)
+	}
+}

@@ -8,8 +8,8 @@ class User {
 
 	static constraints = {
 		username nullable: false, blank: false, unique: true
-		firstName nullable: false, blank: false
-		lastName nullable: false, blank: false
+		firstName nullable: false, blank: false, matches: "[A-Za-z]+"
+		lastName nullable: false, blank: false, matches: "[A-Za-z]+"
 		preferredSector inList: ["CIn", "CCEN", "Area II"]
 	}
 }
