@@ -21,7 +21,6 @@ class SignUpPage extends Page {
 		$("input[name='username']").value(username)
 		$("input[name='firstname']").value(firstname)
 		$("input[name='lastname']").value(lastname)
-		
 	}
 	
 	def preferredSector(String preferredSector){
