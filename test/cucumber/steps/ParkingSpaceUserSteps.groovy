@@ -21,7 +21,7 @@ Given(~/^O sistema tem um usuario com o nome "(.*?)", primeiro nome "(.*?)" e so
 
 
 
-When(~/^Eu digito no nome "(.*?)" primeiro nome "(.*?)" sobrenome "(.*?)"$/) { String username, String firstname, String lastname ->
+When(~/^Eu digito "(.*?)" para o nome, "(.*?)" para o primeiro nome e "(.*?)" para o sobrenome$/) { String username, String firstname, String lastname ->
 	page.register(username, firstname, lastname)
 }
 
@@ -47,8 +47,8 @@ And(~/^Clico no botao cadastrar$/) { ->
 	page.confirmoSignUp()
 }
 
-Then(~/^Eu vou para pagina "(.*?)"$/) { String arg1 ->
-	arg1.equalsIgnoreCase("Home")
+Then(~/^Eu vou para pagina "(.*?)"$/) { String paginaDestino ->
+	paginaDestino.equalsIgnoreCase("Home")
 }
 
 Then(~/^Eu continuo na pagina de cadastro$/) { ->
@@ -56,9 +56,7 @@ Then(~/^Eu continuo na pagina de cadastro$/) { ->
 	at SignUpPage
 }
 
-Then(~/^O sistema tem o usuario com o nome "(.*?)", primeiro nome "(.*?)" e sobrenome "(.*?)"$/) { String userName, String firstname, String lastname ->
+Then(~/^O sistema tem somente um usuario com o nome "(.*?)"$/) { String userName ->
 		def user = User.findByUsername(userName) 
-		assert user.username == userName 
-		assert user.firstName == firstname
-		assert user.lastName == lastname	
+		assert user.username == userName 	
 }
