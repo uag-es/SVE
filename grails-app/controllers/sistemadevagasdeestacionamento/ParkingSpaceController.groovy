@@ -119,4 +119,23 @@ class ParkingSpaceController {
 
         redirect(action: "index", method: "GET")
     }
+	def gerarArquivo(){
+		def parkingSpaces = ParkingSpace.list().findAll()
+		StringBuilder sb = new StringBuilder();
+		sb.append("Parking Space List"+"\r\n\r\n");
+		sb.append("Firstname ---- Description ---- Sector"+"\r\n\r\n");
+		for (ParkingSpace s : parkingSpaces)
+		{
+			if(s.owner != null){
+				sb.append(s.owner.firstName.toString()+" ---- "+s.description.toString()+" ---- "+s.sector.toString());
+				sb.append("\r\n")
+			}
+		}
+		File file = new File("parkingSpace.txt")
+		FileWriter fw = new FileWriter(file.getAbsoluteFile())
+		BufferedWriter bw = new BufferedWriter(fw)
+		bw.write(sb.toString())
+		bw.close();
+		redirect(action: "index")
+	}
 }
