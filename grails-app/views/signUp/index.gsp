@@ -20,6 +20,10 @@
                         <td><input type="text" name="username"/></td>
                     </tr>
                     <tr>
+                        <td>Password:</td>
+                        <td><input type="text" name="password"/></td>
+                    </tr>
+                    <tr>
                         <td>First name:</td>
                         <td><input type="text" name="firstName"/></td>
                     </tr>

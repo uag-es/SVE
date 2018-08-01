@@ -8,18 +8,22 @@ public final class AuthHelper {
         return mCurrentUsername
     }
 
-    public void signup(String username, String sector) {
-        def user = new User(username: username, firstName: "Primeironome", lastName: "Ultimonome", preferredSector: sector)
+    public void signup(String username, String password, String sector) {
+        def user = new User(username: username, password: password, firstName: "Primeironome", lastName: "Ultimonome", preferredSector: sector)
         user.save(flush:true)
     }
 	
-	public void signup(String username, String firstName, String lastName) {
-		def user = new User(username: username, firstName: firstName, lastName: lastName, preferredSector: "CIn")
+	public void signup(String username, String password, String firstName, String lastName) {
+		def user = new User(username: username, password: password, firstName: firstName, lastName: lastName, preferredSector: "CIn")
 		user.save(flush:true)
 	}
 
-    public void login(String username) {
-        mCurrentUsername = username
+    public boolean login(String username, String password) {        
+        def user = User.findByUsername(username)
+		if(user!=null && user.password==password){
+			mCurrentUsername = username
+			return true
+		}
     }
 
     public void logout() {

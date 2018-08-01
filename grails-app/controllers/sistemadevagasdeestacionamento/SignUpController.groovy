@@ -5,6 +5,7 @@ class SignUpController {
 
     def register() {
         String username = params.username
+		String password = params.password
 
         def user = User.findByUsername(username)
 
@@ -17,10 +18,10 @@ class SignUpController {
             String lastName = params.lastName
             String preferredSector = params.preferredSector
 
-            user = new User(username: username, firstName: firstName, lastName: lastName, preferredSector: preferredSector)
+            user = new User(username: username, password: password, firstName: firstName, lastName: lastName, preferredSector: preferredSector)
             user.save(flush: true)
 			if(User.findByUsername(username) != null){
-				AuthHelper.instance.login(username)	
+				AuthHelper.instance.login(username, password)	
 				redirect(controller: 'home', action: 'index')
 			}
 			else{
