@@ -9,7 +9,12 @@ public class AuthController {
 
     def signIn = {
         AuthHelper.instance.login(params.username as String)
-
-        redirect(controller: "home", action: "index")
+		
+		if(params.username == ""){
+			redirect(contoller: "auth", action: "login")
+		}
+		else{
+			redirect(controller: "home", action: "index")
+		}
     }
 }
