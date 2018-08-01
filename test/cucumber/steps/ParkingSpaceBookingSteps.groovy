@@ -185,14 +185,15 @@ Then(~/^I see a message indicating that the parking space was not possible book 
 }*/
 
 
-Given(~/^the system has the user "(.*?)" with "(.*?)" as prefered sector$/) { String username, String sector ->
+Given(~/^the system has the user "(.*?)" with password "(.*?)" with "(.*?)" as prefered sector$/) { String username, String password, String sector ->
 	currentUsername = username
-	AuthHelper.instance.signup(username, sector)
+	currentPassword = password
+	AuthHelper.instance.signup(username,password,sector)
 	def user = User.findByUsername(username)
 	assert user.username == username
 }
 And(~/^the user logged in the system$/) { ->
-	AuthHelper.instance.login(currentUsername)
+	AuthHelper.instance.login(currentUsername, currentPassword)
 	assert AuthHelper.instance.currentUsername == currentUsername
 }
 And(~/^the parking space "(.*?)" is available in the system$/) { String description ->
