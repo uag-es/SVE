@@ -6,27 +6,25 @@ import sistemadevagasdeestacionamento.*
 this.metaClass.mixin(cucumber.api.groovy.Hooks)
 this.metaClass.mixin(cucumber.api.groovy.EN)
 
-Given(~/^the system has stored the user "([^"]*)" with preference for parking spaces in the "([^"]*)" sector$/) { String username, String sector ->
+Given(~/^the system has stored the user "(.*?)" and password "(.*?)" with preference for parking spaces in the "(.*?)" sector$/) { String username, String password, String sector ->
     currentUsername = username
-
-    AuthHelper.instance.signup(username, sector)
-
+	currentPassword = password
+    AuthHelper.instance.signup(username, password, sector)
     def user = User.findByUsername(username)
-
     assert user.username == username
-    assert user.preferredSector == sector
 }
 
-Given(~/^I signed up as "([^"]*)" with preference for parking spaces in the "([^"]*)" sector$/) { String username, String sector ->
+Given(~/^I signed up as "(.*?)" and password "(.*?)" with preference for parking spaces in the "(.*?)" sector$/) { String username, String password, String sector ->
     currentUsername = username
+	currentPassword = password
 
     waitFor { to SignUpPage }
-    page.proceed(username, sector)
+    page.proceed(username, password, sector)
     waitFor { at HomePage }
 }
 
 And(~/^the user is logged in the system$/) { ->
-    AuthHelper.instance.login(currentUsername)
+    AuthHelper.instance.login(currentUsername, currentPassword)
 
     assert AuthHelper.instance.currentUsername == currentUsername
 }

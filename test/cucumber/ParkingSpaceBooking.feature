@@ -5,7 +5,7 @@ Feature: Parking space booking
 
   
   Scenario: Book parking space
-    Given the system has the user "rjss" with "CCEN" as prefered sector
+    Given the system has the user "rjss" with password "123" with "CCEN" as prefered sector
     And the user logged in the system
     And the parking space "CIN-01" is available in the system
     When the user "rjss" tries to book the parking space "CIN-01"

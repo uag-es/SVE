@@ -11,24 +11,22 @@ Given(~/^Estou na pagina de cadastrar usuario$/) { ->
 	at SignUpPage
 }
 
-Given(~/^O sistema tem um usuario com o nome "(.*?)", primeiro nome "(.*?)" e sobrenome "(.*?)"$/) { String userName, String firstname, String lastname ->
-		AuthHelper.instance.signup(userName, firstname, lastname)
+Given(~/^O sistema tem um usuario com o nome "(.*?)", senha "(.*?)", primeiro nome "(.*?)" e sobrenome "(.*?)"$/) { String userName, String password, String firstname, String lastname ->
+		AuthHelper.instance.signup(userName, password, firstname, lastname)
 		def user = User.findByUsername(userName) 
 		assert user.username == userName 
-		assert user.firstName == firstname
-		assert user.lastName == lastname
 }
 
 
 
-When(~/^Eu digito "(.*?)" para o nome, "(.*?)" para o primeiro nome e "(.*?)" para o sobrenome$/) { String username, String firstname, String lastname ->
-	page.register(username, firstname, lastname)
+When(~/^Eu digito "(.*?)" para o nome, "(.*?)" para a senha, "(.*?)" para o primeiro nome e "(.*?)" para o sobrenome$/) { String username, String password, String firstname, String lastname ->
+	page.register(username, password, firstname, lastname)
 }
 
-When(~/^Eu tento cadastrar um novo usuario com o nome "(.*?)", primeiro nome "(.*?)" e sobrenome "(.*?)"$/) { String username, String firstname, String lastname ->
+When(~/^Eu tento cadastrar um novo usuario com o nome "(.*?)", senha "(.*?)", primeiro nome "(.*?)" e sobrenome "(.*?)"$/) { String username, String password, String firstname, String lastname ->
 	to SignUpPage
 	at SignUpPage
-	page.register(username, firstname, lastname)
+	page.register(username, password, firstname, lastname)
 	page.preferredSector("CIn")
 	page.confirmoSignUp()
 }
@@ -58,5 +56,5 @@ Then(~/^Eu continuo na pagina de cadastro$/) { ->
 
 Then(~/^O sistema tem somente um usuario com o nome "(.*?)"$/) { String userName ->
 		def user = User.findByUsername(userName) 
-		assert user.username == userName 	
+		assert user.username.equals(userName) 	
 }
