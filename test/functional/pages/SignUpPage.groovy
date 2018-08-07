@@ -9,7 +9,7 @@ class SignUpPage extends Page {
         title ==~ /Sign up/
     }
 
-    def proceed(String username, String password, String preferredSector) {
+    def registerUserPage(String username, String password, String preferredSector) {
         $("input[name='username']").value(username)
 		$("input[name='password']").value(password)
         $("input[name='firstName']").value("Primeironome")
@@ -18,7 +18,7 @@ class SignUpPage extends Page {
         $("input[name='signUp']").click()
     }
 	
-	def register(String username, String password, String firstname, String lastname) {
+	def registerUserPage(String username, String password, String firstname, String lastname) {
 		$("input[name='username']").value(username)
 		$("input[name='password']").value(password)
 		$("input[name='firstname']").value(firstname)
@@ -29,7 +29,7 @@ class SignUpPage extends Page {
 		$("select[name='preferredSector']").value(preferredSector)
 	}
 	
-	def confirmoSignUp(){
+	def clicButtonSignUp(){
 		$("input[name='signUp']").click()
 	}
 	

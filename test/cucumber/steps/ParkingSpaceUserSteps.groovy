@@ -20,15 +20,15 @@ Given(~/^O sistema tem um usuario com o nome "(.*?)", senha "(.*?)", primeiro no
 
 
 When(~/^Eu digito "(.*?)" para o nome, "(.*?)" para a senha, "(.*?)" para o primeiro nome e "(.*?)" para o sobrenome$/) { String username, String password, String firstname, String lastname ->
-	page.register(username, password, firstname, lastname)
+	page.registerUserPage(username, password, firstname, lastname)
 }
 
 When(~/^Eu tento cadastrar um novo usuario com o nome "(.*?)", senha "(.*?)", primeiro nome "(.*?)" e sobrenome "(.*?)"$/) { String username, String password, String firstname, String lastname ->
 	to SignUpPage
 	at SignUpPage
-	page.register(username, password, firstname, lastname)
+	page.registerUserPage(username, password, firstname, lastname)
 	page.preferredSector("CIn")
-	page.confirmoSignUp()
+	page.clicButtonSignUp()
 }
 
 When(~/^Eu altero o nome do usuario "(.*?)" para o novo nome "(.*?)"$/) { String username1, String username2 ->
@@ -42,7 +42,7 @@ And(~/^Seleciono "(.*?)"$/) { String preferredSector ->
 }
 
 And(~/^Clico no botao cadastrar$/) { ->
-	page.confirmoSignUp()
+	page.clicButtonSignUp()
 }
 
 Then(~/^Eu vou para pagina "(.*?)"$/) { String paginaDestino ->

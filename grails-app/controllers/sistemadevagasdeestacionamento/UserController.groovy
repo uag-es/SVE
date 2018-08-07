@@ -33,7 +33,7 @@ class UserController {
             if (!userInstance.hasErrors()) {
                 userInstance.save(flush: true)
 
-                flash.message = message(code: 'default.created.message', args: [message(code: 'user.label', default: 'User'), userInstance.id])
+                flushMessage(userInstance)
 
                 redirect(userInstance)
             } else {
@@ -54,7 +54,7 @@ class UserController {
             if (!userInstance.hasErrors()) {
                 userInstance.save(flush: true)
 
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'user.label', default: 'User'), userInstance.id])
+                flushMessage(userInstance)
 
                 redirect(userInstance)
             } else {
@@ -70,7 +70,7 @@ class UserController {
         if (userInstance != null) {
             userInstance.delete(flush: true)
 
-            flash.message = message(code: 'default.deleted.message', args: [message(code: 'user.label', default: 'User'), userInstance.id])
+            flushMessage(userInstance)
 
             redirect(action: "index", method: "GET")
         } else {
@@ -83,4 +83,8 @@ class UserController {
 
         redirect(action: "index", method: "GET")
     }
+	
+	def flushMessage(User userInstance){
+		flash.message = message(code: 'default.deleted.message', args: [message(code: 'user.label', default: 'User'), userInstance.id])
+	}
 }

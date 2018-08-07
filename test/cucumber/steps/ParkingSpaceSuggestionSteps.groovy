@@ -19,7 +19,7 @@ Given(~/^I signed up as "(.*?)" and password "(.*?)" with preference for parking
 	currentPassword = password
 
     waitFor { to SignUpPage }
-    page.proceed(username, password, sector)
+    page.registerUserPage(username, password, sector)
     waitFor { at HomePage }
 }
 
