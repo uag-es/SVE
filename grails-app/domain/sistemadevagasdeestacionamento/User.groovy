@@ -13,7 +13,8 @@ class User {
 		firstName nullable: false, blank: false, matches: "[A-Za-z]+"
 		lastName nullable: false, blank: false, matches: "[A-Za-z]+"
 		preferredSector inList: ["CIn", "CCEN", "Area II"]
-	}
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -42,8 +43,7 @@ class User {
 
 	@Override
 	public String toString() {
-		return "User [username=" + username + ", password=" + password
-				+ ", firstName=" + firstName + ", lastName=" + lastName
+		return "User [username=" + username + ", firstName=" + firstName + ", lastName=" + lastName
 				+ ", preferredSector=" + preferredSector + "]";
 	}
 	
