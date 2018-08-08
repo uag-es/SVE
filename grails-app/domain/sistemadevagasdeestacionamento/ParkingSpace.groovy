@@ -12,7 +12,7 @@ class ParkingSpace {
 		sector inList: ["CIn", "CCEN", "Area II"]
 	}
 
-	boolean isAvailable() {
+	private boolean isAvailable() {
 		return owner == null
 	}
 
