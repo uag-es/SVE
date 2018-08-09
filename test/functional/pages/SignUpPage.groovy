@@ -9,8 +9,8 @@ class SignUpPage extends Page {
         title ==~ /Sign up/
     }
 
-    def proceed(String username, String password, String preferredSector) {
-		registerUsernamePassword(username, password)
+    def registerUserPage(String username, String password, String preferredSector) {
+        registerUsernamePassword(username, password)
         $("input[name='firstName']").value("Primeironome")
         $("input[name='lastName']").value("Ultimonome")
         $("select[name='preferredSector']").value(preferredSector)
@@ -32,7 +32,7 @@ class SignUpPage extends Page {
 		$("select[name='preferredSector']").value(preferredSector)
 	}
 	
-	def confirmoSignUp(){
+	def clicButtonSignUp(){
 		$("input[name='signUp']").click()
 	}
 	
