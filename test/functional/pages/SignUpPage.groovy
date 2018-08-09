@@ -10,17 +10,20 @@ class SignUpPage extends Page {
     }
 
     def registerUserPage(String username, String password, String preferredSector) {
-        $("input[name='username']").value(username)
-		$("input[name='password']").value(password)
+        registerUsernamePassword(username, password)
         $("input[name='firstName']").value("Primeironome")
         $("input[name='lastName']").value("Ultimonome")
         $("select[name='preferredSector']").value(preferredSector)
         $("input[name='signUp']").click()
     }
 	
-	def registerUserPage(String username, String password, String firstname, String lastname) {
+	def registerUsernamePassword(String username, String password){
 		$("input[name='username']").value(username)
 		$("input[name='password']").value(password)
+	}
+	
+	def register(String username, String password, String firstname, String lastname) {
+		registerUsernamePassword(username, password)
 		$("input[name='firstname']").value(firstname)
 		$("input[name='lastname']").value(lastname)
 	}
